@@ -1,5 +1,8 @@
 package com.wade.controller;
 
+import static com.wade.MY_ENUM.MY_ENUM_E1;
+import static com.wade.MY_ENUM.MY_ENUM_E2;
+
 import com.google.protobuf.Any;
 import com.google.protobuf.ByteString;
 import com.google.protobuf.Timestamp;
@@ -7,7 +10,6 @@ import com.wade.AllDataTypeRequest;
 import com.wade.AllDataTypeRequest.Inner;
 import com.wade.AllDataTypeResponse;
 import com.wade.AllDataTypeServiceGrpc.AllDataTypeServiceBlockingStub;
-import com.wade.EnumType;
 import com.wade.HelloRequest;
 import com.wade.HelloResponse;
 import com.wade.HelloServiceGrpc.HelloServiceBlockingStub;
@@ -56,10 +58,9 @@ public class ClientController {
         .setField5(true)
         .setField6("string")
         .setField7(ByteString.copyFromUtf8("hello byte string"))
-        .setField8(EnumType.E3)
-        .addField9(EnumType.E2)
-        .addField9(EnumType.E1)
-        .addField9(EnumType.E3)
+        .setField8(MY_ENUM_E2)
+        .addField9(MY_ENUM_E2)
+        .addField9(MY_ENUM_E1)
         .setField10(Inner.newBuilder().setInnerField1("inner string").build())
         .setField11(AllDataTypeResponse.newBuilder().setGreeting("greeting").build())
         .putAllField12(Map.of("Wade", Inner.newBuilder().setInnerField1("Wu").build()))

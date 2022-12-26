@@ -5,13 +5,13 @@ option java_multiple_files = true;
 option java_package = "com.wade";
 
 service AllDataTypeService {
-  rpc print (AllDataTypeRequest) returns (AllDataTypeResponse);
+  rpc Print (AllDataTypeRequest) returns (AllDataTypeResponse);
 }
 
-enum EnumType {
-  E1 = 0;
-  E2 = 1;
-  E3 = 2;
+enum MY_ENUM {
+  MY_ENUM_UNSPECIFIED = 0;
+  MY_ENUM_E1 = 1;
+  MY_ENUM_E2 = 2;
 }
 
 message AllDataTypeRequest {
@@ -22,21 +22,21 @@ message AllDataTypeRequest {
   bool field5 = 5;
   string field6 = 6;
   bytes field7 = 7;
-  EnumType field8 = 8;
-  repeated EnumType field9 = 9;
+  MY_ENUM field8 = 8;
+  repeated MY_ENUM field9 = 9;
   Inner field10 = 10;
   AllDataTypeResponse field11 = 11;
   map<string, Inner> field12 = 12;
   oneof field13 {
-    int32 oneOf1 = 13;
-    string oneOf2 = 14;
-    bool oneOf3 = 15;
+    int32 one_of1 = 13;
+    string one_of2 = 14;
+    bool one_of3 = 15;
   }
   google.protobuf.Any field14 = 16;
   google.protobuf.Timestamp field15 = 17;
 
   message Inner {
-    string innerField1 = 1;
+    string inner_field1 = 1;
   }
 }
 
