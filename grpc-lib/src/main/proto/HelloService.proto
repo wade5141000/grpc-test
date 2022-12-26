@@ -1,0 +1,17 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.wade";
+import "AllDataTypeService.proto";
+
+service HelloService {
+  rpc hello (HelloRequest) returns (HelloResponse);
+}
+
+message HelloRequest {
+  string firstName = 1;
+  string lastName = 2;
+  AllDataTypeRequest allType = 3;
+}
+message HelloResponse {
+  string greeting = 1;
+}

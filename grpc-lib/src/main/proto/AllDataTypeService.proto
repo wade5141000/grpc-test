@@ -1,0 +1,36 @@
+syntax = "proto3";
+option java_multiple_files = true;
+option java_package = "com.wade";
+
+service AllDataTypeService {
+  rpc print (AllDataTypeRequest) returns (AllDataTypeResponse);
+}
+
+enum EnumType {
+  E1 = 0;
+  E2 = 1;
+  E3 = 2;
+}
+
+message AllDataTypeRequest {
+  double field1 = 1;
+  float field2 = 2;
+  int32 field3 = 3;
+  int64 field4 = 4;
+  bool field5 = 5;
+  string field6 = 6;
+  bytes field7 = 7;
+  EnumType field8 = 8;
+  repeated EnumType field9 = 9;
+  Inner field10 = 10;
+  AllDataTypeResponse field11 = 11;
+  map<string, Inner> field12 = 12;
+
+  message Inner {
+    string innerField1 = 1;
+  }
+}
+
+message AllDataTypeResponse {
+  string greeting = 1;
+}
