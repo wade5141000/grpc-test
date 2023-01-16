@@ -2,6 +2,7 @@ package com.wade.config;
 
 import com.wade.AllDataTypeServiceGrpc;
 import com.wade.HelloServiceGrpc;
+import com.wade.StockQuoteProviderGrpc;
 import io.grpc.ManagedChannel;
 import io.grpc.ManagedChannelBuilder;
 import org.springframework.context.annotation.Bean;
@@ -26,6 +27,18 @@ public class GrpcServiceConfig {
   public AllDataTypeServiceGrpc.AllDataTypeServiceBlockingStub AllDataTypeServiceStub(
       ManagedChannel channel) {
     return AllDataTypeServiceGrpc.newBlockingStub(channel);
+  }
+
+  @Bean
+  public StockQuoteProviderGrpc.StockQuoteProviderBlockingStub StockQuoteBlockingStub(
+      ManagedChannel channel) {
+    return StockQuoteProviderGrpc.newBlockingStub(channel);
+  }
+
+  @Bean
+  public StockQuoteProviderGrpc.StockQuoteProviderStub StockQuoteStub(
+      ManagedChannel channel) {
+    return StockQuoteProviderGrpc.newStub(channel);
   }
 
 }
